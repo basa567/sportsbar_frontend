@@ -1,0 +1,27 @@
+.cover{
+    width:100%;
+    height:150px;
+    margin:50px;
+    background: black;
+}
+
+.sport{
+    
+    color:white;
+}
+.bar{
+    background: green;
+    color:white;
+}
+.contact{
+    background:red;
+    color:white;
+}
+.nav{
+    background:purple;
+    color:black;
+}
+.search{
+    background:yellow;
+    color:black;
+}
