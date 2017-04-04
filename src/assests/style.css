@@ -65,9 +65,10 @@
 a{
     color:black;
 }
+
+/*css ends for bar*/
+@media screen and (max-width: 680px) {
 .bar{
     width:100%;
 }
-
-
-/*css ends for bar*/
+}
