@@ -5,6 +5,7 @@
     background: black;
 }
 
+
 .sport{
     
     color:white;
@@ -21,7 +22,49 @@
     background:purple;
     color:black;
 }
-.search{
-    background:black;
+
+/*css begin for search*/
+.logo{
+    margin:20px;
+    border-radius:10px;    
+}
+.scontainer{
+    margin:20px;
+}
+.background{
+    background-image:url("../components/image/bar4.jpg");
+    width:100%;
+    height:100%;
+}
+.sbtn{
+    width:100%;
+    font-weight:bold;    
+}
+.form-control{
+    margin-bottom:10px;
+}
+.slogan{
+    color:white;
+    font-weight: bold;
+    text-align:center;
+    margin-top:20px;
+    background-color:rgba(51,51,85,0.5) 
+}
+
+/*css end for search*/
+
+/*css begin for bar*/
+
+.backdivcolor{
+    margin-top:50px;
+    background-color:#F7F6D7;
+}
+.title{
+    font-size:1.2em;
+}
+a{
     color:black;
 }
+
+
+/*css ends for bar*/

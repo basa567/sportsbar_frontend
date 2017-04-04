@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-class Navigation extends Component {
+class Map extends Component {
   render() {
     return (
       <div className="cover nav">
@@ -11,4 +11,4 @@ class Navigation extends Component {
   }
 }
 
-export default Navigation;
+export default Map;
