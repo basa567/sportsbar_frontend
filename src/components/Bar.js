@@ -20,21 +20,21 @@ class Bar extends Component {
         <div className="row"> 
          < a href="#bar1">            
             <div className="col col-sm-4 ">  
-              <img src={require("./image/bar3.jpg")} alt="sportsbar" width="350px" height="150px"  className=""></img>
+              <img src={require("./image/bar3.jpg")} alt="sportsbar" width="350px" height="150px"  className="bar"></img>
                <h4><b className="title">Tivoli Oulu</b></h4> 
                <p>Isokatu 35, 90100 Oulu,Finland</p>                   
             </div> 
           </a>  
           < a href="#bar2">          
              <div className="col col-lg-4 ">
-              <img src={require("./image/bar2.jpg")} alt="sportsbar" width="350px" height="150px" className=""></img>
+              <img src={require("./image/bar2.jpg")} alt="sportsbar" width="350px" height="150px" className="bar"></img>
                <h4><b className="title">Tivoli Oulu</b></h4> 
                <p>Isokatu 35, 90100 Oulu,Finland</p>
             </div>
             </a> 
           <a href="#bar3"> 
             <div className="col col-lg-4 ">
-               <img src={require("./image/bar4.jpg")} alt="sportsbar" width="350px" height="150px" className=""></img>
+               <img src={require("./image/bar4.jpg")} alt="sportsbar" width="350px" height="150px" className="bar"></img>
                 <h4><b className="title">Tivoli Oulu</b></h4> 
                 <p>Isokatu 35, 90100 Oulu,Finland</p>
             </div>
