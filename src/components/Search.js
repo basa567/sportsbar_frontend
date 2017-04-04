@@ -21,7 +21,7 @@ class Search extends Component {
             <div className="col col-sm-4">             
             </div>            
              <div className="col col-lg-6">
-              <h2 className="slogan">Find the best sport bar's in Oulu</h2>
+              <h2 className="slogan">Find the best sport bar in Oulu</h2>
             </div>
             <div className="col col-lg-2">
               
