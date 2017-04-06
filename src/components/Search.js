@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import apigame from './apigame.js';
+import { Link } from 'react-router'
+
 
 class Search extends Component {
    constructor(props) {
@@ -27,8 +29,8 @@ class Search extends Component {
         this.setState({date:e.target.value});        
       }
     Search(){
-         var sportid = this.state.input;
-         var date  = this.state.date;  
+        //  var sportid = this.state.input;
+        //  var date  = this.state.date;  
         //  var apisearch = {
         //     getbar(){
         //       var url ="https://sportsbbar.herokuapp.com/getscbydatesport/2017-04-03/58e1f0d7b229d80004b2be3b";
@@ -56,7 +58,7 @@ class Search extends Component {
             <div className="col col-sm-6">                               
             </div>  
             <div className="col col-sm-2">
-              <img src={require("./image/logo.png")} alt="sportsbar" height="100px" width="100px" className="logo"></img>
+             
             </div>            
              <div className="col col-lg-4">              
             </div>                     
@@ -89,10 +91,10 @@ class Search extends Component {
               </select>
             </div>
             <div className="col col-lg-3">
-              <input type="date" className="txtDate form-control" onChange={this.handleChangeDate.bind(this)}></input>
+              <input type="date" className="txtDate form-control" onChange={this.handleChangeDate.bind(this)} ></input>
             </div>
-            <div className="col col-lg-1">
-                <button className="btn btn-success sbtn" onClick={this.Search}>Find</button>
+            <div className="col col-lg-1">             
+              <Link to="/searchbar"><button className="btn btn-success sbtn" onClick={this.Search}>Find</button></Link>                
             </div>
               <div className="col col-lg-1">
               

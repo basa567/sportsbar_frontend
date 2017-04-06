@@ -1,32 +1,16 @@
-.cover{
-    width:100%;
-    height:150px;
-    margin:50px;
-    background: black;
-}
 
-
-.sport{    
-    color:white;
-}
-.bar{
-    background: green;
-    color:white;
-}
-.contact{
-    background:red;
-    color:white;
-}
-.nav{
-    background:purple;
-    color:black;
-}
 
 /*css begin for search*/
-.logo{
-    margin:20px;
-    border-radius:10px;    
+.logo{    
+   background:purple;      
 }
+.navbar-brand  {
+   background:white;
+}
+.navbar-nav{
+    background: white;
+}
+
 .scontainer{
     margin:20px;
 }

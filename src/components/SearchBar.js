@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-class Bar extends Component {
+class SearchBar extends Component {
   render() {
     return (
     <div className="backdivcolor">
@@ -67,4 +67,4 @@ class Bar extends Component {
   }
 }
 
-export default Bar;
+export default SearchBar;
