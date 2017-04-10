@@ -4,10 +4,8 @@ import React, { Component } from 'react';
 class Sport extends Component {
   render() {
     return (
-     <div className=" container">
-       <div className="row">
-        <h2> Bar Detail including match schedule</h2>
-        </div>
+      <div className="cover bar">
+        <h2>Add UI design showing top 3 bars</h2>
       </div>
     );
   }

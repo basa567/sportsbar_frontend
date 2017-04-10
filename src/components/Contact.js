@@ -1,13 +1,35 @@
 import React, { Component } from 'react';
-
+import { Grid,Row,Image,Col,Thumbnail } from 'react-bootstrap';
+import suman from './Image/suman.png';
+import '../assests/contact.css';
 
 class Contact extends Component {
   render() {
     return (
-      <div className=" container">
-       <div className="row">
-        <h2> Contact</h2>
-        </div>
+      <div className="contact">
+      <div className="contact-title">
+        <h2>contact US</h2>
+      </div>
+    <Grid>
+
+      <Row>
+      <Col xs={6} md={4}>
+        <Image src={suman} className="img-contact" alt="Cinque Terre" circle />
+        <h4>Suman </h4>
+        <p>Email:suman@sportbar.fi </p>
+      </Col>
+      <Col xs={6} md={4}>
+      <Image src={suman} className="img-contact"alt="Cinque Terre" circle />
+        <h4>Suman </h4>
+      <p>Email:suman@sportbar.fi </p>
+      </Col>
+      <Col xs={6} md={4}>
+        <Image src={suman} className="img-contact" alt="Cinque Terre" circle />
+          <h4>Suman </h4>
+        <p>Email:suman@sportbar.fi </p>
+      </Col>
+    </Row>
+  </Grid>
       </div>
     );
   }

@@ -1,0 +1,56 @@
+
+.detail{
+  background: gray;
+
+}
+.detail-title h2{
+  text-align: center;
+}
+.detailimg{
+  width: 900px;
+  height: 350px;
+
+}
+
+.detail-list h1,h2{
+  text-align: center;
+}
+.detail-list p,{
+  text-align: left;
+}
+
+.detail h4{
+  text-align: center;
+}
+.detail p{
+  text-align: left;
+}
+.detail h2{
+  text-align: center;
+}
+.sch_btn{
+  maxWidth: 400;
+   margin: '0 auto 10px';
+}
+.btn-custom {
+        background-color: #800000;
+        color: white;
+}
+.Drink tr,th{
+  text-align: center;
+}
+
+.Drink-title h2{
+  text-align: center;
+}
+.AddReview{
+  background-color: grey;
+  color: white;
+}
+.comment{
+  float:left;
+}
+.com-img{
+  width:64px;
+  height:64px;
+}
