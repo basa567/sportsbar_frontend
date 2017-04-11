@@ -25,19 +25,21 @@ class Bar extends Component {
           </Col>
 
               <Col xs={6} md={4}>
-                  <Thumbnail   href={'/detail'} className="barimg" src={barimg} alt="image" >
+                  <Link to="/detail"> <Thumbnail    className="barimg" src={barimg} alt="image" >
                       <h4>Sport Bar</h4>
                       <p>Rating:4</p>
                       <p>Location</p>
                     </Thumbnail>
+                   </Link>
               </Col>
 
             <Col xs={6} md={4}>
-                <Thumbnail  href={'/detail'} className="barimg" src={barimg} alt="image" >
+                <Link to="/detail"> <Thumbnail   className="barimg" src={barimg} alt="image" >
                       <h4>Sport Bar</h4>
                       <p>Rating:4.5</p>
                       <p>Location</p>
                   </Thumbnail>
+                  </Link>
               </Col>
           </Row>
         </Grid>       
