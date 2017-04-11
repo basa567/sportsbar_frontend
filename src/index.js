@@ -5,7 +5,10 @@ import SearchBar from './components/SearchBar';
 import Map from './components/Map.js';
 import Sport from './components/Sport.js';
 import Bar from './components/Bar.js';
+import Detail from './components/Detail.js';
 import Contact from './components/Contact.js';
+import Rating from './components/Rating.js';
+import Review from './components/Review.js';
 import "./assests/style.css";
 
 import { Router, Route, browserHistory,Link } from 'react-router'
@@ -48,6 +51,9 @@ ReactDOM.render( <Router history={browserHistory }>
           <Route path='/searchbar' component={SearchBar}></Route>
           <Route path='/top3bar' component={Bar}></Route>
           <Route path='/contact' component={Contact}></Route>
+          <Route path='/detail' component={Detail}></Route>
+          <Route path='/rating' component={Rating}></Route>
+          <Route path='/review' component={Review}></Route>
         </Route>
        
       </Router>,document.getElementById('root'))

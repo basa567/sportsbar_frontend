@@ -2,7 +2,7 @@
 
 /*css begin for search*/
 .logo{    
-   background:purple;      
+   background:black;      
 }
 .navbar-brand  {
    background:white;
@@ -55,3 +55,120 @@ a{
     width:100%;
 }
 }
+
+/*bar :start*/
+.barimg{
+  height:250px;
+}
+ /*bar end*/
+ /*contact :start*/
+ .contact{
+    background: 7FFF00;
+    color:	FFA07A;
+    padding-bottom: 5%;
+}
+.contact-title{
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  color: maroon;
+}
+.contact,h4,p,h2{
+  text-align: center;
+  color: maroon;
+}
+.img-contact{
+  width:304px;
+  height:236px;
+}
+ /*contact end*/
+ /*detai :start*/
+ .detail{
+  background:#F7F6D7;
+  margin-top:15px;
+}
+.detail-title h2{
+  text-align: center;
+}
+.detailimg{
+  width:100%;
+  height: 200px;
+
+}
+
+.detail-list h1,h2{
+  text-align: center;
+}
+.detail-list p,{
+  text-align: left;
+}
+
+.detail h4{
+  text-align: center;
+}
+.detail p{
+  text-align: left;
+}
+.detail h2{
+  text-align: center;
+}
+.sch_btn{
+  max-Width: 400;
+   margin: '0 auto 10px';
+}
+.btn-custom {
+        background-color: maroon;
+        color: white;
+}
+.Drink tr,th{
+  text-align: center;
+}
+
+.Drink-title h2{
+  text-align: center;
+  color:white;
+}
+.Drink{
+    background-color:black;
+    color:white;
+}
+.AddReview{
+  background-color:#F7F6D7;
+  color: black;
+}
+.comment{
+  float:left;
+}
+.com-img{
+  width:64px;
+  height:64px;
+}
+.btn-customrating{
+    background-color:black;
+    color: white;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.btn-customreview{
+    background-color:black;
+    color:white;   
+}
+.cmt{
+    text-align: justify;
+}
+.review{
+    background-color:#F7F6D7;    
+}
+
+.titlename{
+    background-color:white;
+    
+}
+
+.btnback{
+    margin-top:10px;     
+     background-color:black; 
+     color:white;   
+}
+
+ /*detail end*/

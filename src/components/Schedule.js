@@ -3,7 +3,7 @@ import $ from 'jquery';
 import Drink from './Drink.js';
 import { Grid,Row,Col,Button,PropTypes,Children,custom} from 'react-bootstrap';
 
-import '../assests/detail.css';
+
 class Schedule extends Component {
   constructor(props) {
   super(props);
@@ -24,12 +24,9 @@ _football(){
 
   render() {
     return (
-      <div className="Schedule">
-
+ <div className="Schedule">
     <Grid>
-
       <Row>
-
          <Col  md={6} mdpull={6}  >
            <div className="sch-title">
              <h2>Sport Schedule</h2>
@@ -47,14 +44,12 @@ _football(){
                 <div ref="football">
                   I'm a div football
               </div>
-                </div>
-        </Col>
-  <Drink/>
+            </div>
+        </Col>     
     </Row>
   </Grid>
-
-      </div>
-
+  <Drink/>
+</div>
     );
   }
 }
