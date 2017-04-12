@@ -19,7 +19,7 @@ const InitialMap = withGoogleMap(props => {
        {marker.showInfo && (
          <InfoWindow onCloseClick={() => props.onMarkerClose(marker)}>
          {
-            <div id="infoWindow"> <p>About the bar</p></div>
+            <div id="infoWindow"> <h3>{marker.barName}</h3><p>{marker.address}</p></div>
          }
          </InfoWindow>
        )}
