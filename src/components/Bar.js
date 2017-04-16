@@ -1,47 +1,52 @@
 import React, { Component } from 'react';
-import { Grid,Row,Col,Thumbnail,Button } from 'react-bootstrap';
-import barimg from './image/barimg.png';
-import Rating from './Rating.js';
-import '../assests/style.css';
-import { Link } from 'react-router'
+import $ from 'jquery';
+import Barinfo from './Barinfo.js';
+
+
 
 class Bar extends Component {
+  constructor(){
+    super();
+    this.state = {
+      gettopbar:[]
+    }
+
+  }
+
+  getbartop(){
+    $.ajax({
+      url: 'https://sportsbbar.herokuapp.com/gettopbar',
+      dataType:'json',
+      cache: false,
+      success: function(data){
+        this.setState({gettopbar: data}, function(){
+          console.log(this.state);
+        });
+      }.bind(this),
+      error: function(xhr, status, err){
+        console.log(err);
+      }
+    });
+  }
+
+
+  componentWillMount(){
+
+    this.getbartop();
+
+      }
+
+  componentDidMount(){
+    this.getbartop();
+
+  }
+
   render() {
     return (
-      <div className="bar">
-          <div className="bar-title">
-             <h1>TOP 3 BARS </h1>
-          </div>  
-        <Grid>
-          <Row>
-          <Col xs={6} md={4}>
-           <Link to="/detail"> <Thumbnail   className="barimg" src={barimg} alt="image" >
-                    <h4>Sport Bar</h4>
-                    <p>Rating:3</p>
-                    <p>Location</p>
-            </Thumbnail></Link>
+      <div className="App">
 
-          </Col>
-              <Col xs={6} md={4}>
-                  <Link to="/detail"> <Thumbnail    className="barimg" src={barimg} alt="image" >
-                      <h4>Sport Bar</h4>
-                      <p>Rating:4</p>
-                      <p>Location</p>
-                    </Thumbnail>
-                   </Link>
-              </Col>
-
-            <Col xs={6} md={4}>
-                <Link to="/detail"> <Thumbnail   className="barimg" src={barimg} alt="image" >
-                      <h4>Sport Bar</h4>
-                      <p>Rating:4.5</p>
-                      <p>Location</p>
-                  </Thumbnail>
-                  </Link>
-              </Col>
-          </Row>
-        </Grid>       
-      </div>
+         <Barinfo gettopbar={this.state.gettopbar} />
+       </div>
     );
   }
 }

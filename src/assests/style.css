@@ -1,8 +1,8 @@
 
 
 /*css begin for search*/
-.logo{    
-   background:black;      
+.logo{
+   background:black;
 }
 .navbar-brand  {
    background:white;
@@ -21,7 +21,7 @@
 }
 .sbtn{
     width:100%;
-    font-weight:bold;    
+    font-weight:bold;
 }
 .form-control{
     margin-bottom:10px;
@@ -31,14 +31,14 @@
     font-weight: bold;
     text-align:center;
     margin-top:20px;
-    background-color:rgba(51,51,85,0.5) 
+    background-color:rgba(51,51,85,0.5)
 }
 
 /*css end for search*/
 
 /*css begin for bar*/
 
-.backdivcolor{  
+.backdivcolor{
     background-color:#D9853B;
 }
 .resultcontent{
@@ -47,7 +47,7 @@
 
 .noresult{
     background-color:red;
-    
+
 }
 .noresult p{
     color:white;
@@ -174,24 +174,24 @@ a{
 }
 .btn-customreview{
     background-color:black;
-    color:white;   
+    color:white;
 }
 .cmt{
     text-align: justify;
 }
 .review{
-    background-color:#F7F6D7;    
+    background-color:#F7F6D7;
 }
 
 .titlename{
     background-color:white;
-    
+
 }
 
 .btnback{
-    margin-top:10px;     
-     background-color:black; 
-     color:white;   
+    margin-top:10px;
+     background-color:black;
+     color:white;
 }
 
  /*detail end*/
