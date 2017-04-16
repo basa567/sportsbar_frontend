@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import apigame from './apigame.js';
-
+import { Link } from 'react-router'
 
 
 class Search extends Component {
+
    constructor(props) {
           super(props);
           this.state = {
@@ -14,23 +15,25 @@ class Search extends Component {
             count:0
           };  
           this.Search = this.Search.bind(this);       
-        }
+      }
       
     componentWillMount() {
           apigame.getsport().then((res)=>{            
             this.setState({
               sport:res
             })
-          }) 
-            
-        }
+          })             
+     }
+
     handleChange(e) {    
         this.setState({input:e.target.value});        
-      }
+     }
+
    handleChangeDate(e) {    
         this.setState({date:e.target.value});        
-      }
-    Search(){
+    }
+
+   Search(){
          var sportid = this.state.input;
          var date  = this.state.date;  
          var url = "https://sportsbbar.herokuapp.com/getscbydatesport/"+date+"/"+sportid+"";  
@@ -46,8 +49,7 @@ class Search extends Component {
          this.setState({
             bars:res
           });                            
-      })
-                 
+      })     
 
     }
      
@@ -61,32 +63,27 @@ class Search extends Component {
 
       return (               
         <div className="background">   
+          <div className="container scontainer">
+            <div className="row">          
+                <div className="col col-sm-6">                                                 
+                </div>          
+                <div className="col col-sm-2">           
+                </div>            
+                <div className="col col-lg-4">              
+                </div>                     
+            </div>        
+        </div>  
         <div className="container scontainer">
-          <div className="row">          
-              <div className="col col-sm-6"> 
-                                                 
-              </div>
-          
-              <div className="col col-sm-2">
-           
-              </div>            
-              <div className="col col-lg-4">              
-              </div>                     
-          </div>        
-      </div>  
-      <div className="container scontainer">
-          <div className="row">             
-              <div className="col col-sm-4">  
-                             
-              </div>            
-              <div className="col col-lg-6">
-                <h2 className="slogan">Find the best sport bar in Oulu</h2>
-              </div>
-              <div className="col col-lg-2">
-                
-              </div>           
-          </div>        
-      </div>
+            <div className="row">             
+                <div className="col col-sm-4">                               
+                </div>            
+                <div className="col col-lg-6">
+                  <h2 className="slogan">Find the best sport bar in Oulu</h2>
+                </div>
+                <div className="col col-lg-2">                  
+                </div>           
+            </div>        
+        </div>
         <div className="container scontainer">
           <div className="row">
               <div className="col col-lg-2">             
@@ -131,7 +128,7 @@ class Search extends Component {
                               </div>                                    
                           </div>            
                         </div> 
-                       <a href={'/detail'}  className="resultcontent">        
+                       <Link to={'/detail'}  className="resultcontent">        
                         <div className="container">
                           <div className="row">                              
                               <div className="col col-sm-4 ">                                                           
@@ -144,7 +141,7 @@ class Search extends Component {
                               </div>                                                           
                           </div>            
                       </div>
-                     </a> 
+                     </Link> 
                         <div className="container contentgap">
                           <div className="row">             
                               <div className="col col-sm-5">                                                                
