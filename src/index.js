@@ -1,7 +1,6 @@
 import ReactDOM from 'react-dom';
 import React, { Component } from 'react';
 import Search from './components/Search.js';
-import SearchBar from './components/SearchBar';
 import Map from './components/Map.js';
 import Sport from './components/Sport.js';
 import Bar from './components/Bar.js';
@@ -47,8 +46,7 @@ class  App extends Component {
 ReactDOM.render( <Router history={browserHistory }>
         <Route path='/' component={App}> 
           <Route path='/search'component={Search}></Route>
-           <Route path='/map'component={Map}></Route>
-          <Route path='/searchbar' component={SearchBar}></Route>
+           <Route path='/map'component={Map}></Route>          
           <Route path='/top3bar' component={Bar}></Route>
           <Route path='/contact' component={Contact}></Route>
           <Route path='/detail' component={Detail}></Route>

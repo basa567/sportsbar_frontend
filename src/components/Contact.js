@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Grid,Row,Image,Col,Thumbnail } from 'react-bootstrap';
-import suman from './image/suman.png';
+
 
 
 class Contact extends Component {

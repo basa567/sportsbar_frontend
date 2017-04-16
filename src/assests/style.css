@@ -38,15 +38,42 @@
 
 /*css begin for bar*/
 
-.backdivcolor{
-    margin-top:50px;
-    background-color:#F7F6D7;
+.backdivcolor{  
+    background-color:#D9853B;
+}
+.resultcontent{
+    text-decoration:none;
+}
+
+.noresult{
+    background-color:red;
+    
+}
+.noresult p{
+    color:white;
+    font-size:22px;
 }
 .title{
     font-size:1.2em;
 }
 a{
     color:black;
+}
+.content{
+    background-color:white;
+    height:120px;
+    padding-left:12px;
+    text-decoration:none;
+}
+.titlebar{
+    font-size:18px;
+    font-weight:bold;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+.bar{
+    border-top-right-radius:5px;
+    border-top-left-radius:5px;
 }
 
 /*css ends for bar*/
@@ -56,11 +83,7 @@ a{
 }
 }
 
-/*bar :start*/
-.barimg{
-  height:250px;
-}
- /*bar end*/
+
  /*contact :start*/
  .contact{
     background: 7FFF00;
@@ -71,11 +94,11 @@ a{
   text-align: center;
   padding-top: 40px;
   padding-bottom: 40px;
-  color: maroon;
+  color: black;
 }
 .contact,h4,p,h2{
   text-align: center;
-  color: maroon;
+  color: black;
 }
 .img-contact{
   width:304px;

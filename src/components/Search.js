@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import apigame from './apigame.js';
-import { Link } from 'react-router'
+
 
 
 class Search extends Component {
@@ -9,7 +9,9 @@ class Search extends Component {
           this.state = {
             sport:[],
             input:"",
-            date:""
+            date:"",
+            bars:[],
+            count:0
           };  
           this.Search = this.Search.bind(this);       
         }
@@ -20,7 +22,7 @@ class Search extends Component {
               sport:res
             })
           }) 
-                
+            
         }
     handleChange(e) {    
         this.setState({input:e.target.value});        
@@ -29,85 +31,175 @@ class Search extends Component {
         this.setState({date:e.target.value});        
       }
     Search(){
-        //  var sportid = this.state.input;
-        //  var date  = this.state.date;  
-        //  var apisearch = {
-        //     getbar(){
-        //       var url ="https://sportsbbar.herokuapp.com/getscbydatesport/2017-04-03/58e1f0d7b229d80004b2be3b";
-        //       return fetch(url).then((res)=>res.json());
-        //       }
-        //     };      
-         var apisearch = {
-            getbar(){
-              var url ="https://sportsbbar.herokuapp.com/getscbydatesport/2017-04-03/58e1f0d7b229d80004b2be3b";
-              return fetch(url).then((res)=>res.json());
-              }
-            };
-        apisearch.getbar().then((res)=>{
-            this.setState({
-              searchbar:res
-            })
-          })
-         
-      }
-  render() {
-    return (                
-      <div className="background">   
+         var sportid = this.state.input;
+         var date  = this.state.date;  
+         var url = "https://sportsbbar.herokuapp.com/getscbydatesport/"+date+"/"+sportid+"";  
+        
+        var api = {          
+            getbar(){               
+                return fetch(url).then((res)=>res.json());                   
+            }
+        }; 
+      
+       api.getbar().then((res)=>{  
+         console.log(res);                 
+         this.setState({
+            bars:res
+          });                            
+      })
+                 
+
+    }
+     
+    render() { 
+      const barlength = this.state.bars.length;
+      if(barlength>1){
+        var  button =  this.state.bars.map((time, i) => <SearchResult key={i} data={time} />)     
+        }else{
+         var  button =  this.state.bars.map((time, i) => <NotFoundResult key={i} data={time} />)  
+        } 
+
+      return (               
+        <div className="background">   
+        <div className="container scontainer">
+          <div className="row">          
+              <div className="col col-sm-6"> 
+                                                 
+              </div>
+          
+              <div className="col col-sm-2">
+           
+              </div>            
+              <div className="col col-lg-4">              
+              </div>                     
+          </div>        
+      </div>  
       <div className="container scontainer">
-        <div className="row">
-            <div className="col col-sm-6">                               
-            </div>  
-            <div className="col col-sm-2">
-             
-            </div>            
-             <div className="col col-lg-4">              
-            </div>                     
-        </div>        
-     </div>  
-     <div className="container scontainer">
-        <div className="row">             
-            <div className="col col-sm-4">             
-            </div>            
-             <div className="col col-lg-6">
-              <h2 className="slogan">Find the best sport bar in Oulu</h2>
-            </div>
-            <div className="col col-lg-2">
-              
-            </div>           
-        </div>        
-     </div>
+          <div className="row">             
+              <div className="col col-sm-4">  
+                             
+              </div>            
+              <div className="col col-lg-6">
+                <h2 className="slogan">Find the best sport bar in Oulu</h2>
+              </div>
+              <div className="col col-lg-2">
+                
+              </div>           
+          </div>        
+      </div>
+        <div className="container scontainer">
+          <div className="row">
+              <div className="col col-lg-2">             
+              </div>                    
+              <div className="col col-lg-5">
+                <select className="form-control" onChange={this.handleChange.bind(this)}>
+                  <option >Search By Game</option>
+                  {
+                    this.state.sport.map(function(item, i){                                                     
+                      return <option value={item._id} key={i}>{item.sportname}</option>
+                    })
+                  }
+                </select>
+              </div>
+              <div className="col col-lg-3">
+                <input type="date" className="txtDate form-control" onChange={this.handleChangeDate.bind(this)} ></input>
+              </div>
+              <div className="col col-lg-1">             
+               <button className="btn btn-success sbtn" onClick={this.Search} >Find</button>          
+              </div>
+                <div className="col col-lg-1">                
+              </div>
+          </div>        
+      </div>
       <div className="container scontainer">
-        <div className="row">
-             <div className="col col-lg-2">             
-            </div>                    
-             <div className="col col-lg-5">
-              <select className="form-control" onChange={this.handleChange.bind(this)}>
-                <option >Search By Game</option>
-                 {
-                  this.state.sport.map(function(item, i){                                                     
-                     return <option value={item._id} key={i}>{item.sportname}</option>
-                  })
-                }
-              </select>
-            </div>
-            <div className="col col-lg-3">
-              <input type="date" className="txtDate form-control" onChange={this.handleChangeDate.bind(this)} ></input>
-            </div>
-            <div className="col col-lg-1">             
-              <Link to="/searchbar"><button className="btn btn-success sbtn" onClick={this.Search}>Find</button></Link>                
-            </div>
-              <div className="col col-lg-1">
-              
-            </div>
-        </div>        
+          <div className="row">                     
+          </div>        
+      </div> 
+      {button}   
      </div>
-     <div className="container scontainer">
-        <div className="row">            
-        </div>        
-     </div>
-     </div>
-    );
+      );
   }
 }
+ class SearchResult extends Component {   
+                render() {                                                             
+                    return (
+                       <div className="backdivcolor">   
+                          <div className="container">
+                          <div className="row">                                      
+                              <div className="col col-sm-12 alert">                               
+                                <strong></strong>                             
+                              </div>                                    
+                          </div>            
+                        </div> 
+                       <a href={'/detail'}  className="resultcontent">        
+                        <div className="container">
+                          <div className="row">                              
+                              <div className="col col-sm-4 ">                                                           
+                                <img src={require("./image/" + this.props.data.image)} alt="sportsbar" width="350px" height="150px"  className="bar"></img>                                
+                                <div className="content">
+                                  <div className="titlebar"> {this.props.data.barname}</div>
+                                  <div> Timetable:{this.props.data.time}</div>
+                                  <div> {this.props.data.address}</div>                                   
+                                </div>                                              
+                              </div>                                                           
+                          </div>            
+                      </div>
+                     </a> 
+                        <div className="container contentgap">
+                          <div className="row">             
+                              <div className="col col-sm-5">                                                                
+                              </div>            
+                              <div className="col col-lg-3 ">               
+                                <h3></h3>               
+                              </div>
+                              <div className="col col-lg-4 ">                           
+                              </div>           
+                          </div>            
+                        </div>
+                      </div>
+                    )
+              }
+ }
+
+ class NotFoundResult extends Component {   
+        render() {                                              
+            return (
+               <div className="noresult">                
+                  <div className="container contentgap">
+                      <div className="row">             
+                         <div className="col col-sm-5">                                                                
+                          </div>            
+                           <div className="col col-lg-3 ">               
+                                <p>{this.props.data.message}</p>               
+                            </div>
+                            <div className="col col-lg-4 ">                           
+                              </div>           
+                          </div>            
+                        </div>
+                      </div>
+                    )
+    }
+ }
+
+  class FoundResult extends Component {   
+        render() {                                              
+            return (
+               <div className="backdivcolor">                
+                  <div className="container contentgap">
+                      <div className="row">             
+                         <div className="col col-sm-5">                                                                
+                          </div>            
+                           <div className="col col-lg-3 ">               
+                                <h3> result found</h3>               
+                            </div>
+                            <div className="col col-lg-4 ">                           
+                              </div>           
+                          </div>            
+                        </div>
+                      </div>
+                    )
+    }
+ }
+
 
 export default Search;

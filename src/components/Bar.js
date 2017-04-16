@@ -15,7 +15,7 @@ class Bar extends Component {
         <Grid>
           <Row>
           <Col xs={6} md={4}>
-            <Thumbnail  href="/detail" className="barimg" src={barimg} alt="image" >
+            <Thumbnail  href={'/detail'} className="barimg" src={barimg} alt="image" >
                     <h4>Sport Bar</h4>
                     <p>Rating:3</p>
                     <p>Location</p>
