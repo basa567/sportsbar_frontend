@@ -19,8 +19,8 @@ class Bar extends Component {
                     <h4>Sport Bar</h4>
                     <p>Rating:3</p>
                     <p>Location</p>
-            </Thumbnail>
-           </Link>          
+            </Thumbnail></Link>
+
           </Col>
               <Col xs={6} md={4}>
                   <Link to="/detail"> <Thumbnail    className="barimg" src={barimg} alt="image" >
