@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import {barimg} from './image/barimg.png';
 import { Link } from 'react-router'
 
+
 class Barlist extends Component {
   render() {
     return (
       <Link to={"detail/"+this.props.topbar.bar_id }> 
       <li className="barlist">
+
        <img src={require("./image/" +this.props.topbar.image)} alt="sportsbar" width="350px" height="150px"  className="bar"></img>
+
         <h6>{this.props.topbar.barname}</h6>
         <h6>{this.props.topbar.address}</h6>
         <h6>{this.props.topbar.rating}</h6>       
