@@ -1,56 +1,26 @@
 import React, { Component } from 'react';
-import { Grid,Row,Col,FormGroup,ControlLabel,FieldGroup,FormControl,Button,InputGroup} from 'react-bootstrap';
 import { Link } from 'react-router'
 
 
 class Rating extends Component {
   render() {
+    console.log(this.props.params.barid);
     return (
       <div className="AddReview">
-       <Link to="/detail"> <Button bsStyle="customrating" bsSize="large" block>Back</Button></Link>
-   <form>
-      <Grid>
-
-        <Row>
-
-           <Col  md={6} mdpush={6}  >
-             <div className="AddReview-title">
-               <h4>Give your rating & review </h4>
-         </div>
-
-
-<FormGroup>
-      <ControlLabel>Name:</ControlLabel>
-          <FormControl
-              id="formControlsText"
-              type="text"
-              label="Text"
-              placeholder="Enter text"
-            />
-
-          </FormGroup>
-          <FormGroup controlId="formControlsSelect">
-              <ControlLabel>Rating</ControlLabel>
-              <FormControl componentClass="select" placeholder="select">
-                <option value="one">1</option>
-                <option value="two">2</option>
-                <option value="three">3</option>
-                <option value="four">4</option>
-                  <option value="five">5</option>
-                </FormControl>
-        </FormGroup>
-        <FormGroup controlId="formControlsTextarea">
-       <ControlLabel>Review</ControlLabel>
-       <FormControl componentClass="textarea" placeholder="textarea" />
-     </FormGroup>
-
-    <Link to="/detail"> <Button type="submit" bsStyle="custom" bsSize="medium">
-    Submit
-   </Button></Link>
- </Col>
-  </Row>
-</Grid>
-</form>
+       <form action="#" method="POST">
+            <div className="form-group">
+              <label for="email">Email address:</label>
+              <input type="email" class="form-control" id="email"></input>
+            </div>
+            <div className="form-group">
+              <label for="pwd">Password:</label>
+              <input type="password" class="form-control" id="pwd"></input>
+            </div>
+            <div className="checkbox">
+               <input type="checkbox"> Remember me</input>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
       </div>
     );
   }

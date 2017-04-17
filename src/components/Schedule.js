@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
-import Drink from './Drink.js';
 import { Grid,Row,Col,Button,PropTypes,Children,custom} from 'react-bootstrap';
 
 
@@ -47,8 +46,7 @@ _football(){
             </div>
         </Col>     
     </Row>
-  </Grid>
-  <Drink/>
+  </Grid>  
 </div>
     );
   }

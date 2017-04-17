@@ -10,7 +10,7 @@ class Barinfo extends Component {
       barlist=this.props.gettopbar.map(topbar=>{
       //  console.log(topbar);
         return(
-     <Barlist key={topbar.name} topbar={topbar}/>
+     <Barlist key={topbar.bar_id} topbar={topbar}/>
         );
       });
     }
@@ -18,7 +18,7 @@ class Barinfo extends Component {
     return (
       <div className="projects">
         <h3>Latest bar </h3>
-         {barlist}
+        {barlist}
       </div>
     );
   }

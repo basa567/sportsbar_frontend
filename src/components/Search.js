@@ -44,8 +44,7 @@ class Search extends Component {
             }
         }; 
       
-       api.getbar().then((res)=>{  
-         console.log(res);                 
+       api.getbar().then((res)=>{                         
          this.setState({
             bars:res
           });                            

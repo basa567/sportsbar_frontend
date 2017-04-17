@@ -49,9 +49,7 @@ ReactDOM.render( <Router history={browserHistory }>
            <Route path='/map'component={Map}></Route>          
           <Route path='/top3bar' component={Bar}></Route>
           <Route path='/contact' component={Contact}></Route>
-          <Route path='/detail' component={Detail}></Route>
-          <Route path='/rating' component={Rating}></Route>
-          <Route path='/review' component={Review}></Route>
+          <Route path='detail/:barid' component={Detail}></Route>
         </Route>
-       
+      
       </Router>,document.getElementById('root'))
