@@ -37,7 +37,7 @@ class Search extends Component {
          var sportid = this.state.input;
          var date  = this.state.date;  
          var url = "https://sportsbbar.herokuapp.com/getscbydatesport/"+date+"/"+sportid+"";  
-        
+         console.log(url);
         var api = {          
             getbar(){               
                 return fetch(url).then((res)=>res.json());                   
@@ -48,13 +48,14 @@ class Search extends Component {
          this.setState({
             bars:res
           });                            
-      })     
+      }) 
+          
 
     }
      
-    render() { 
-      const barlength = this.state.bars.length;
-      if(barlength>1){
+    render() {       
+      const barlength = this.state.bars.length;  
+      if(barlength>0){
         var  button =  this.state.bars.map((time, i) => <SearchResult key={i} data={time} />)     
         }else{
          var  button =  this.state.bars.map((time, i) => <NotFoundResult key={i} data={time} />)  
@@ -116,8 +117,8 @@ class Search extends Component {
       );
   }
 }
- class SearchResult extends Component {   
-                render() {                                                             
+ class SearchResult extends Component { 
+                   render() {                                                                                  
                     return (
                        <div className="backdivcolor">   
                           <div className="container">
@@ -127,7 +128,7 @@ class Search extends Component {
                               </div>                                    
                           </div>            
                         </div> 
-                       <Link to={'/detail'}  className="resultcontent">        
+                       <Link to={'detail/'+this.props.data.bar_id}  className="resultcontent">        
                         <div className="container">
                           <div className="row">                              
                               <div className="col col-sm-4 ">                                                           
