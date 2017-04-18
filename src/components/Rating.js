@@ -29,7 +29,7 @@ class Rating extends Component {
 
     onSubmit() {  
        
-       fetch('http://sportsbbar.herokuapp.com/storerating', {
+       fetch('https://sportsbbar.herokuapp.com/storerating', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
