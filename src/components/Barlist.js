@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {barimg} from './image/barimg.png';
 import { Link } from 'react-router'
 
 
