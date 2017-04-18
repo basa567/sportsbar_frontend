@@ -18,12 +18,7 @@ class Detail extends Component {
       }
 
    componentDidMount() {
-<<<<<<< HEAD
-       var url ="https://sportsbbar.herokuapp.com/getbardrink/"+this.props.params.barid;
-          this.api = {
-              getdrink(){
-                  return fetch(url).then((res)=>res.json());
-=======
+
     //  to get the schedule data from api
     var url ="https://sportsbbar.herokuapp.com/getsportbytoday/"+this.props.params.barid;
     console.log(url);
@@ -52,11 +47,9 @@ class Detail extends Component {
       })
 // to get the drink list from api
        var url ="https://sportsbbar.herokuapp.com/getbardrink/"+this.props.params.barid;
-       console.log('for get bar drink',url);
           this.api = {
               getdrink(){
                   return fetch(url).then((res)=>res.json());
->>>>>>> schedule
               }
           };
 
