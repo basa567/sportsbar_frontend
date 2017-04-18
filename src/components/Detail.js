@@ -16,7 +16,6 @@ class Detail extends Component {
   
    componentDidMount() {
        var url ="https://sportsbbar.herokuapp.com/getbardrink/"+this.props.params.barid; 
-       console.log(url);   
           this.api = {          
               getdrink(){               
                   return fetch(url).then((res)=>res.json());                   
@@ -64,7 +63,7 @@ class Detail extends Component {
              <Row>
             <Col  md={12} mdpull={12}  >           
            <div className="sch_btn" >
-               <Button bsStyle="customrating" bsSize="large" block>Give Your Views & Rating</Button>
+              <Link to={"rating/"+this.props.params.barid}> <Button bsStyle="customrating" bsSize="large" block>Give Your Views & Rating</Button></Link>
                  <Button bsStyle="customreview" bsSize="large" block>See Review</Button>            
             </div>
            </Col>
