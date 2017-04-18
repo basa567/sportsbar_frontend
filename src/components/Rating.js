@@ -1,69 +1,106 @@
 
 import React, { Component } from 'react';
-import { Link } from 'react-router'
+import $ from 'jquery';
+import { Link } from 'react-router';
 
-class Review extends Component {
+class Rating extends Component {
    constructor(props) {
           super(props);
-          this.state = {
-            rating:[]            
-          }                          
+          this.state = {            
+            name:"",
+            rating:0,
+            review:"" ,
+            barid:this.props.params.bid ,
+            message:""        
+          };  
+          this.onSubmit = this.onSubmit.bind(this);          
       }
-  
-   componentDidMount() {
-       var url ="http://sportsbbar.herokuapp.com/getbarrate/"+this.props.params.bid;           
-       this.api={          
-              getreview(){               
-                  return fetch(url).then((res)=>res.json());                   
-              }
-        };       
-       this.api.getreview().then((res)=>{         
-           this.setState({
-              rating:res
-            });                                       
-        })   
-                           
-   }  
-  render() {    
-    const ratinglength = this.state.rating.length; 
-    console.log(ratinglength);   
-    if(ratinglength>0){
-      var review = this.state.rating.map((time, i) => <ReviewResult key={i} data={time} />)
+ 
+    handleNameChange(e){     
+      this.setState({name: e.target.value});
+       
+    } 
+    handleRatingChange(e){
+      this.setState({rating: e.target.value});
+    } 
+    handleReviewChange(e){
+      this.setState({review: e.target.value});
     }
-    return (
-    <div>
-      <div className="container">
-          <div className="row">                    
-              <div className="col col-sm-12 ">            
-                <div className="row">                                  
-                    <div className="col col-lg-12 ">                 
-                    <Link to={"detail/"+this.props.params.bid }> <button type="button" className="btn btn-primary gobackbtn">Go Back</button></Link>
-                    </div>
-                </div>             
-              </div>                             
-          </div>            
-      </div>  
-      {review}     
-     </div> 
+
+    onSubmit() {  
+       
+       fetch('http://sportsbbar.herokuapp.com/storerating', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({         
+         "name":this.state.name,
+        "bar_id": this.state.barid,
+        "rating_no": this.state.rating,
+        "review": this.state.review
+        })
+      }) .then((response) => {
+   if(response.ok) {
+       this.setState({message:"Saved your views and rating"});
+   } else {
+     this.setState({message:"Please try again!!"});
+   }
+ })     
+    
+  } 
+
+  
+  render() { 
+    const msg= this.state.message.length;    
+      if(msg>0){
+        var  message =  this.state.message;     
+        }   
+    return ( 
+      <form> 
+          <div className="container">
+               <div className="row">                                  
+                  <div className="col col-lg-12 ">                 
+                   <Link to={"detail/"+this.props.params.bid }> <button type="button" className="btn btn-primary gobackbtn">Go Back</button></Link>
+                  </div>
+              </div>
+              <div className="row ">                                  
+                  <div className="col col-lg-12 reviewresult">                 
+                   {message}
+                  </div>
+              </div>
+              <div className="row">                                  
+                  <div className="col col-lg-12">                 
+                    <input type="text" className="form-control namegap"  placeholder="Enter username" onChange={this.handleNameChange.bind(this)}></input>
+                  </div>
+              </div>
+        
+              <div className="row">                                  
+                  <div className="col col-lg-12">
+                    <select className="form-control" onChange={this.handleRatingChange.bind(this)} >
+                      <option >Give rating Number</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                  </div>
+              </div>          
+          
+              <div className="row">                                  
+                  <div className="col col-lg-12">                
+                    <textarea class="form-control" className="txtcomment" id="comment" onChange={this.handleReviewChange.bind(this)}></textarea>
+                  </div>
+              </div>
+              <button type="button" className="btn btn-success" onClick={this.onSubmit}>Submit</button>
+          </div>       
+    </form>  
     );
   }
 }
 
- class ReviewResult extends Component { 
-      render() {                                              
-            return (
-                <div className="container review">       
-                  <div className="row">  
-                      <div className="col col-sm-12 titlename">            
-                        <h4>{this.props.data.name} says</h4>               
-                      </div>                    
-                      <div className="col col-sm-12 ">            
-                        <p class="cmt">{this.props.data.review}</p>               
-                      </div>                             
-                  </div> 
-               </div>                    
-            )
-         }
-       }
 
-export default Review;
+export default Rating;
+
