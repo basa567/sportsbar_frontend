@@ -28,7 +28,7 @@ class Rating extends Component {
 
     onSubmit() {  
        
-       fetch('http://localhost:5000/storerating', {
+       fetch('http://sportsbbar.herokuapp.com/storerating', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -52,7 +52,7 @@ class Rating extends Component {
 
   
   render() { 
-    const msg= this.state.message.length;  
+    const msg= this.state.message.length;    
       if(msg>0){
         var  message =  this.state.message;     
         }   

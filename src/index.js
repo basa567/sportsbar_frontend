@@ -50,7 +50,8 @@ ReactDOM.render( <Router history={browserHistory }>
           <Route path='/top3bar' component={Bar}></Route>
           <Route path='/contact' component={Contact}></Route>          
           <Route path='detail/:barid' component={Detail}></Route>
-          <Route path='rating/:bid' component={Rating}></Route>          
+          <Route path='rating/:bid' component={Rating}></Route> 
+          <Route path='review/:bid' component={Review}></Route>         
         </Route>
       
       </Router>,document.getElementById('root'))

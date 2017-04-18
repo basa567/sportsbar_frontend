@@ -64,7 +64,7 @@ class Detail extends Component {
             <Col  md={12} mdpull={12}  >           
            <div className="sch_btn" >
               <Link to={"rating/"+this.props.params.barid}> <Button bsStyle="customrating" bsSize="large" block>Give Your Views & Rating</Button></Link>
-                 <Button bsStyle="customreview" bsSize="large" block>See Review</Button>            
+               <Link to={"review/"+this.props.params.barid}><Button bsStyle="customreview" bsSize="large" block>See Review</Button></Link>            
             </div>
            </Col>
              </Row>
