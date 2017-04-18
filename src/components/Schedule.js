@@ -33,20 +33,20 @@ _football(){
            <div className="sch_btn" >
                 <Button bsStyle="custom" bsSize="large" onClick={this._volleyball} block>Volleyball</Button>
                 <div ref="volleyball">
-                    <p>I'm a div with vollyball</p>
+                    <p>I am a div with vollyball</p>
                   </div>
                 <Button bsStyle="custom" bsSize="large" onClick={this._basketball} block>Basketball</Button>
                 <div ref="basketball">
-                  I'm a div with basketball
+                  I am a div with basketball
                   </div>
                 <Button bsStyle="custom" bsSize="large" onClick={this._football} block>Football</Button>
                 <div ref="football">
-                  I'm a div football
+                  I am a div football
               </div>
             </div>
-        </Col>     
+        </Col>
     </Row>
-  </Grid>  
+  </Grid>
 </div>
     );
   }

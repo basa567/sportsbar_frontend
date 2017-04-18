@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Grid,Row,Col,Thumbnail,Image,Button,wellStyles,Table} from 'react-bootstrap';
 import Schedule from './Schedule.js';
 import detailimg from './image/detailimg.png';
-import { Link } from 'react-router'
+import { Link } from 'react-router';
+import axios from 'axios';
+
 
 
 class Detail extends Component {
@@ -10,36 +12,60 @@ class Detail extends Component {
    constructor(props) {
           super(props);
           this.state = {
-            drinkinfo:[]            
-          };                           
+            drinkinfo:[],
+            schedule: []
+          };
       }
-  
+
    componentDidMount() {
-       var url ="https://sportsbbar.herokuapp.com/getbardrink/"+this.props.params.barid; 
-       console.log(url);   
-          this.api = {          
-              getdrink(){               
-                  return fetch(url).then((res)=>res.json());                   
+    //  to get the schedule data from api
+     axios.get('https://sportsbbar.herokuapp.com/getschedule')
+      .then(response => {
+        const scheduleData = response.data;
+        console.log('schedules data', scheduleData);
+        const nextSchedule = scheduleData.map(scheduleObject => {
+          const barId = scheduleObject.bar_id;
+          const sportDate = scheduleObject.sport_date;
+          const sportTime = scheduleObject.time;
+          return {
+            barId: barId,
+            sportDate: sportDate,
+            sportTime: sportTime
+          }
+
+        })
+        console.log('next schedule',nextSchedule)
+
+        this.setState({
+          schedule: nextSchedule
+        })
+      })
+// to get the drink list from api
+       var url ="https://sportsbbar.herokuapp.com/getbardrink/"+this.props.params.barid;
+       console.log(url);
+          this.api = {
+              getdrink(){
+                  return fetch(url).then((res)=>res.json());
               }
-          }; 
-        
-       this.api.getdrink().then((res)=>{                        
+          };
+
+       this.api.getdrink().then((res)=>{
           this.setState({
               drinkinfo:res
-            });                                    
-         }) 
-         
-                      
-     }  
-  
-  render() {            
-    const drinklength = this.state.drinkinfo.length;    
-    if(drinklength>0){      
-        var drink = this.state.drinkinfo.map((drinkdetail, i) => <Drink key={i} data={drinkdetail} />) 
-    }   
+            });
+         })
+
+
+     }
+
+  render() {
+    const drinklength = this.state.drinkinfo.length;
+    if(drinklength>0){
+        var drink = this.state.drinkinfo.map((drinkdetail, i) => <Drink key={i} data={drinkdetail} />)
+    }
     return (
-    <div>    
-      <div className="detail">        
+    <div>
+      <div className="detail">
           <Grid>
              <Row>
               <div className="detailname">
@@ -56,16 +82,16 @@ class Detail extends Component {
               </Col>
             </div>
              </Row>
-           </Grid>          
+           </Grid>
         </div>
           <Schedule/>
           {drink}
          <Grid>
              <Row>
-            <Col  md={12} mdpull={12}  >           
+            <Col  md={12} mdpull={12}  >
            <div className="sch_btn" >
                <Button bsStyle="customrating" bsSize="large" block>Give Your Views & Rating</Button>
-                 <Button bsStyle="customreview" bsSize="large" block>See Review</Button>            
+                 <Button bsStyle="customreview" bsSize="large" block>See Review</Button>
             </div>
            </Col>
              </Row>
@@ -75,8 +101,8 @@ class Detail extends Component {
   }
 }
 
-class Drink extends Component {   
-        render() {                                              
+class Drink extends Component {
+        render() {
             return (
                 <div className="Drink">
                   <div className="Drink-title">
@@ -97,7 +123,7 @@ class Drink extends Component {
                               <td>{this.props.data.drinkname}</td>
                               <td>{this.props.data.price}</td>
                             </tr>
-                  
+
                           </tbody>
                         </Table>
                       </Col>
