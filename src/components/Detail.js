@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Grid,Row,Col,Thumbnail,Image,Button,wellStyles,Table} from 'react-bootstrap';
-import Schedule from './Schedule.js';
 import detailimg from './image/detailimg.png';
-import { Link } from 'react-router'
+import { Link } from 'react-router';
+import axios from 'axios';
+import $ from 'jquery';
+
 
 
 class Detail extends Component {
@@ -10,35 +12,77 @@ class Detail extends Component {
    constructor(props) {
           super(props);
           this.state = {
-            drinkinfo:[]            
-          };                           
+            drinkinfo:[],
+            schedule: []
+          };
       }
-  
+
    componentDidMount() {
-       var url ="https://sportsbbar.herokuapp.com/getbardrink/"+this.props.params.barid; 
-          this.api = {          
-              getdrink(){               
-                  return fetch(url).then((res)=>res.json());                   
+<<<<<<< HEAD
+       var url ="https://sportsbbar.herokuapp.com/getbardrink/"+this.props.params.barid;
+          this.api = {
+              getdrink(){
+                  return fetch(url).then((res)=>res.json());
+=======
+    //  to get the schedule data from api
+    var url ="https://sportsbbar.herokuapp.com/getsportbytoday/"+this.props.params.barid;
+    console.log(url);
+     axios.get(url)
+      .then(response => {
+        const scheduleData = response.data;
+        console.log('schedules data', scheduleData);
+        const nextSchedule = scheduleData.map(scheduleObject => {
+          const barId = scheduleObject.bar_id;
+          const sportDate = scheduleObject.sport_date;
+          const sportTime = scheduleObject.time;
+          const sportId = scheduleObject.sport_id;
+          return {
+            barId: barId,
+            sportDate: sportDate,
+            sportTime: sportTime,
+            sportId: sportId
+          }
+
+        })
+        console.log('next schedule',nextSchedule)
+
+        this.setState({
+          schedule: nextSchedule
+        })
+      })
+// to get the drink list from api
+       var url ="https://sportsbbar.herokuapp.com/getbardrink/"+this.props.params.barid;
+       console.log('for get bar drink',url);
+          this.api = {
+              getdrink(){
+                  return fetch(url).then((res)=>res.json());
+>>>>>>> schedule
               }
-          }; 
-        
-       this.api.getdrink().then((res)=>{                        
+          };
+
+       this.api.getdrink().then((res)=>{
           this.setState({
               drinkinfo:res
-            });                                    
-         }) 
-         
-                      
-     }  
-  
-  render() {            
-    const drinklength = this.state.drinkinfo.length;    
-    if(drinklength>0){      
-        var drink = this.state.drinkinfo.map((drinkdetail, i) => <Drink key={i} data={drinkdetail} />) 
-    }   
+            });
+         })
+
+
+     }
+
+  render() {
+    // for drink
+    const drinklength = this.state.drinkinfo.length;
+    if(drinklength>0){
+        var drink = this.state.drinkinfo.map((drinkdetail, i) => <Drink key={i} data={drinkdetail} />)
+    }
+    // for Schedule
+    const scheduleLength = this.state.schedule.length;
+    if(scheduleLength >0){
+      var schedule = this.state.schedule.map((scheduleDetail, i) => <Schedule key={i} data={scheduleDetail}/>)
+    }
     return (
-    <div>    
-      <div className="detail">        
+    <div>
+      <div className="detail">
           <Grid>
              <Row>
               <div className="detailname">
@@ -55,16 +99,18 @@ class Detail extends Component {
               </Col>
             </div>
              </Row>
-           </Grid>          
+           </Grid>
         </div>
-          <Schedule/>
+          {schedule}
           {drink}
          <Grid>
              <Row>
-            <Col  md={12} mdpull={12}  >           
+            <Col  md={12} mdpull={12}  >
            <div className="sch_btn" >
+
               <Link to={"rating/"+this.props.params.barid}> <Button bsStyle="customrating" bsSize="large" block>Give Your Views & Rating</Button></Link>
-               <Link to={"review/"+this.props.params.barid}><Button bsStyle="customreview" bsSize="large" block>See Review</Button></Link>            
+               <Link to={"review/"+this.props.params.barid}><Button bsStyle="customreview" bsSize="large" block>See Review</Button></Link>
+
             </div>
            </Col>
              </Row>
@@ -74,8 +120,8 @@ class Detail extends Component {
   }
 }
 
-class Drink extends Component {   
-        render() {                                              
+class Drink extends Component {
+        render() {
             return (
                 <div className="Drink">
                   <div className="Drink-title">
@@ -96,7 +142,7 @@ class Drink extends Component {
                               <td>{this.props.data.drinkname}</td>
                               <td>{this.props.data.price}</td>
                             </tr>
-                  
+
                           </tbody>
                         </Table>
                       </Col>
@@ -105,6 +151,62 @@ class Drink extends Component {
             </div>
             )
         }
+ }
+
+ class Schedule extends Component {
+   constructor(props) {
+   super(props);
+   this._volleyball = this._volleyball.bind(this);
+   this._basketball = this._basketball.bind(this);
+   this._football = this._football.bind(this);
+ }
+ _volleyball(){
+     $(this.refs['volleyball']).slideToggle();
+ }
+ _basketball() {
+   $(this.refs['basketball']).slideToggle();
+ }
+ _football(){
+     $(this.refs['football']).slideToggle();
+ }
+
+
+   render() {
+    //  if(this.props.data.sportId === '58e5075c7b55f10004e7cb9c'){
+    //     var hockey = [];
+    //
+    //  }
+     return (
+  <div className="Schedule">
+     <Grid>
+       <Row>
+          <Col  md={6} mdpull={6}  >
+            <div className="sch-title">
+              <h2>Sport Schedule</h2>
+            </div>
+            <div className="sch_btn" >
+                 <Button bsStyle="custom" bsSize="large" onClick={this._volleyball} block>Volleyball</Button>
+                 <div ref="volleyball">
+                   <p>{this.props.data.sportDate}</p>
+                   <p>{this.props.data.sportTime}</p>
+                   </div>
+                 <Button bsStyle="custom" bsSize="large" onClick={this._basketball} block>Basketball</Button>
+                 <div ref="basketball">
+                  <p>{this.props.data.sportDate}</p>
+                   <p>{this.props.data.sportTime}</p>
+                   </div>
+                 <Button bsStyle="custom" bsSize="large" onClick={this._football} block>Football</Button>
+                 <div ref="football">
+                 <p>{this.props.data.sportDate}</p>
+                  <p>{this.props.data.sportTime}</p>
+               </div>
+             </div>
+         </Col>
+     </Row>
+   </Grid>
+ </div>
+     );
+   }
  }
 
 export default Detail;
