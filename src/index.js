@@ -49,15 +49,11 @@ ReactDOM.render( <Router history={browserHistory }>
           <Route path='/search'component={Search}></Route>
            <Route path='/map'component={Map}></Route>
           <Route path='/top3bar' component={Bar}></Route>
-          <Route path='/contact' component={Contact}></Route>          
+          <Route path='/contact' component={Contact}></Route>
           <Route path='detail/:barid' component={Detail}></Route>
-<<<<<<< HEAD
-=======
-          <Route path='rating/:bid' component={Rating}></Route> 
-          <Route path='review/:bid' component={Review}></Route>         
-        </Route>
->>>>>>> fc7ea9b6f85a6183dc8df43e26ca8133fb6b0fd9
-      
+
+          <Route path='rating/:bid' component={Rating}></Route>
+          <Route path='review/:bid' component={Review}></Route>
         </Route>
 
       </Router>,document.getElementById('root'))

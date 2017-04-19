@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
  import { Grid,Row,Col,Thumbnail,Image,Button,wellStyles,Table} from 'react-bootstrap';
-import Schedule from './Schedule.js';
 import axios from 'axios';
 import { Link } from 'react-router';
 
@@ -15,7 +14,7 @@ class Detail extends Component {
           this.state = {
             drinkinfo:[],
 
-            bardetail:[]
+            bardetail:[],
 
             schedule: []
 
@@ -27,7 +26,6 @@ class Detail extends Component {
 
     //  to get the schedule data from api
     var url ="https://sportsbbar.herokuapp.com/getsportbytoday/"+this.props.params.barid;
-    console.log(url);
      axios.get(url)
       .then(response => {
         const scheduleData = response.data;
@@ -45,7 +43,6 @@ class Detail extends Component {
           }
 
         })
-        console.log('next schedule',nextSchedule)
 
         this.setState({
           schedule: nextSchedule
@@ -62,8 +59,9 @@ class Detail extends Component {
 
        this.api.getdrink().then((res)=>{
 
-         drinkinfo:res
+
           this.setState({
+            drinkinfo:res
             });
          })
 
@@ -86,31 +84,6 @@ class Detail extends Component {
 
 
   render() {
-    const drinklength = this.state.drinkinfo.length;
-  if(drinklength>0){
-      var drink = this.state.drinkinfo.map((drinkdetail, i) =>
-      <Drink key={i} data={drinkdetail} />)
-  }
-
-    const barlength = this.state.bardetail.length;
-    console.log(barlength);
-    if(barlength>0){
-        var bar = this.state.bardetail.map((bardetail, i) => <Bardetail key={i} bardata={bardetail} />)
-    }
-    return (
-
-    <div>
-
-
-          this.setState({
-              drinkinfo:res
-            });
-         })
-
-
-     }
-
-  render() {
     // for drink
     const drinklength = this.state.drinkinfo.length;
     if(drinklength>0){
@@ -120,6 +93,12 @@ class Detail extends Component {
     const scheduleLength = this.state.schedule.length;
     if(scheduleLength >0){
       var schedule = this.state.schedule.map((scheduleDetail, i) => <Schedule key={i} data={scheduleDetail}/>)
+    }
+    //for bar
+    const barlength = this.state.bardetail.length;
+    console.log(barlength);
+    if(barlength>0){
+        var bar = this.state.bardetail.map((bardetail, i) => <Bardetail key={i} bardata={bardetail} />)
     }
     return (
     <div>
