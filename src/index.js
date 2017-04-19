@@ -33,7 +33,7 @@ class  App extends Component {
                <li><Link to="/">Home</Link></li>
                <li><Link to="/search">Search</Link></li>
                <li><Link to="/map">Map</Link></li>
-               <li><Link to="/top3bar">Top 3 Bar</Link></li>
+               <li><Link to="/top3bar">Top Bars</Link></li>
                <li><Link to="/contact">Contact</Link></li>
             </ul>
           </div>
