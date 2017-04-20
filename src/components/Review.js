@@ -10,7 +10,7 @@ class Review extends Component {
       }
 
    componentDidMount() {
-       var url ="https://sportsbbar.herokuapp.com/getbarrate/"+this.props.params.bid;           
+       var url ="https://sportsbbar.herokuapp.com/getbarrate/"+this.props.params.bid;
        this.api={
               getreview(){
                   return fetch(url).then((res)=>res.json());
