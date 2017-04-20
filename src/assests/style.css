@@ -54,6 +54,25 @@
 
 /*css end for search*/
 
+/*css begin for map*/
+.seeMore{
+  color: green;
+}
+.panel{
+  border-radius: 20px;
+}
+.panel > .panel-heading{
+border-radius: 40px;
+}
+.panel > .panel-footer{
+border-radius: 40px;
+}
+.panel > .panel-body{
+border-radius: 40px;
+font-style: italic;
+font-weight: bolder;
+}
+/*css end for map*/
 /*css begin for bar*/
 
 .backdivcolor{

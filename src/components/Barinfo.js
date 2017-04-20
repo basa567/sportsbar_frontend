@@ -17,7 +17,7 @@ class Barinfo extends Component {
     //console.log(this.props);
     return (
       <div className="bar">
-        <h3>Latest bar </h3>
+        <h3>Sports bars in Oulu </h3>
         {barlist}
       </div>
     );

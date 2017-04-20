@@ -26,11 +26,14 @@ class Map extends Component {
         const nextMarkers = markerData.map(markerObject => {
           const latLng = {lat: Number(markerObject.latitude), lng: Number(markerObject.longitude)};
           const barName = markerObject.barname;
-          const address = markerObject.address ? markerObject.address: null
+          const address = markerObject.address ? markerObject.address: null;
+          const barID = markerObject._id;
+          console.log(barID)
           return {
             barName: barName,
             position: latLng,
-            address: address
+            address: address,
+            barID: barID
           }
         })
         this.setState({
@@ -38,6 +41,7 @@ class Map extends Component {
         })
       })
   }
+
 
 
   handleChange(event){

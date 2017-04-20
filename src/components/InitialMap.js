@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {withGoogleMap, GoogleMap, InfoWindow, Marker} from 'react-google-maps';
+import { Link } from 'react-router'
 
 const InitialMap = withGoogleMap(props => {
   return (
@@ -19,7 +20,13 @@ const InitialMap = withGoogleMap(props => {
        {marker.showInfo && (
          <InfoWindow onCloseClick={() => props.onMarkerClose(marker)}>
          {
-            <div id="infoWindow"> <h3>{marker.barName}</h3><p>{marker.address}</p></div>
+            <div id="infoWindow" >
+            <div className="panel panel-info">
+    <div className="panel-heading"><h3>{marker.barName}</h3></div>
+    <div className="panel-body"><p>{marker.address}</p></div>
+    <div className="panel-footer"><Link to={"detail/"+marker.barID } className="seeMore"> See more..</Link></div>
+  </div>
+            </div>
          }
          </InfoWindow>
        )}
