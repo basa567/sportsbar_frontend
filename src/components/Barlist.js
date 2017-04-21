@@ -3,7 +3,9 @@ import { Link } from 'react-router'
 
 
 class Barlist extends Component {
-  render() {
+ render() {
+     const rating =this.props.topbar.rating;
+     var rate = rating.toFixed(1);     
     return (
       <Link to={"detail/"+this.props.topbar.bar_id }>
       <div className="barlist">
@@ -15,7 +17,7 @@ class Barlist extends Component {
       <div className="col-sm-12 col-md-6">
         <h4>{this.props.topbar.barname}</h4>
         <h6>{this.props.topbar.address}</h6>
-        <h6>Rating: {this.props.topbar.rating}</h6>
+        <h6>Rating:{rate}</h6>
       </div>
       </div>
       </div>

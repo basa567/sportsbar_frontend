@@ -19,8 +19,7 @@ class Bar extends Component {
       dataType:'json',
       cache: false,
       success: function(data){
-        this.setState({gettopbar: data}, function(){
-          console.log(this.state);
+        this.setState({gettopbar: data}, function(){         
         });
       }.bind(this),
       error: function(xhr, status, err){
@@ -41,7 +40,8 @@ class Bar extends Component {
 
   }
 
-  render() {
+  render() { 
+ 
     return (
       <div className="App">
 

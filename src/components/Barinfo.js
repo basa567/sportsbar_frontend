@@ -7,14 +7,12 @@ class Barinfo extends Component {
   render() {
     let barlist;
     if(this.props.gettopbar){
-      barlist=this.props.gettopbar.map(topbar=>{
-      //  console.log(topbar);
+      barlist=this.props.gettopbar.map(topbar=>{     
         return(
      <Barlist key={topbar.bar_id} topbar={topbar}/>
         );
       });
-    }
-    //console.log(this.props);
+    }   
     return (
       <div className="bar">
         <h3>Sports bars in Oulu </h3>

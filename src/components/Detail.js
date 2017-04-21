@@ -26,20 +26,22 @@ class Detail extends Component {
 
     //  to get the schedule data from api
     var url ="https://sportsbbar.herokuapp.com/getsportbytoday/"+this.props.params.barid;
+    console.log(url);
      axios.get(url)
       .then(response => {
-        const scheduleData = response.data;
-        console.log('schedules data', scheduleData);
+        const scheduleData = response.data;        
         const nextSchedule = scheduleData.map(scheduleObject => {
           const barId = scheduleObject.bar_id;
           const sportDate = scheduleObject.sport_date;
           const sportTime = scheduleObject.time;
           const sportId = scheduleObject.sport_id;
+          const sportName = scheduleObject.sportname;
           return {
             barId: barId,
             sportDate: sportDate,
             sportTime: sportTime,
-            sportId: sportId
+            sportId: sportId,
+            sportName:sportName
           }
 
         })
@@ -71,15 +73,14 @@ class Detail extends Component {
            dataType:'json',
            cache: false,
            success: function(data){
-             this.setState({bardetail: data}, function(){
-               console.log(this.state);
+             this.setState({bardetail: data}, function(){               
              });
            }.bind(this),
            error: function(xhr, status, err){
              console.log(err);
            }
          });
-         console.log(this.state.bardetail);
+         
        }
 
 
@@ -95,8 +96,7 @@ class Detail extends Component {
       var schedule = this.state.schedule.map((scheduleDetail, i) => <Schedule key={i} data={scheduleDetail}/>)
     }
     //for bar
-    const barlength = this.state.bardetail.length;
-    console.log(barlength);
+    const barlength = this.state.bardetail.length;   
     if(barlength>0){
         var bar = this.state.bardetail.map((bardetail, i) => <Bardetail key={i} bardata={bardetail} />)
     }
@@ -193,47 +193,26 @@ class Drink extends Component {
  class Schedule extends Component {
    constructor(props) {
    super(props);
-   this._volleyball = this._volleyball.bind(this);
-   this._basketball = this._basketball.bind(this);
-   this._football = this._football.bind(this);
+   this._volleyball = this._volleyball.bind(this);  
  }
  _volleyball(){
      $(this.refs['volleyball']).slideToggle();
  }
- _basketball() {
-   $(this.refs['basketball']).slideToggle();
- }
- _football(){
-     $(this.refs['football']).slideToggle();
- }
 
 
-   render() {
-
-     return (
+render() {  
+return (
   <div className="Schedule">
      <Grid>
        <Row>
-          <Col  md={6} mdpull={6}  >
-            <div className="sch-title">
-              <h2>Sport Schedule</h2>
-            </div>
+          <Col  md={12} mdpull={12}  >
+            
             <div className="sch_btn" >
-                 <Button bsStyle="custom" bsSize="large" onClick={this._volleyball} block>Volleyball</Button>
-                 <div ref="volleyball">
-                   <p>{this.props.data.sportDate}</p>
-                   <p>{this.props.data.sportTime}</p>
-                   </div>
-                 <Button bsStyle="custom" bsSize="large" onClick={this._basketball} block>Basketball</Button>
-                 <div ref="basketball">
-                  <p>{this.props.data.sportDate}</p>
-                   <p>{this.props.data.sportTime}</p>
-                   </div>
-                 <Button bsStyle="custom" bsSize="large" onClick={this._football} block>Football</Button>
-                 <div ref="football">
-                 <p>{this.props.data.sportDate}</p>
-                  <p>{this.props.data.sportTime}</p>
-               </div>
+                 <Button bsStyle="custom" bsSize="large" onClick={this._volleyball} block>{this.props.data.sportName}</Button>
+                 <div ref="volleyball"> 
+                                  
+                   <p><b>Timetable:</b>{this.props.data.sportTime}</p>
+                   </div>          
              </div>
          </Col>
      </Row>
