@@ -24,8 +24,7 @@ class Review extends Component {
 
    }
   render() {
-    const ratinglength = this.state.rating.length;
-    console.log(ratinglength);
+    const ratinglength = this.state.rating.length;    
     if(ratinglength>0){
       var review = this.state.rating.map((time, i) => <ReviewResult key={i} data={time} />)
     }
@@ -54,7 +53,7 @@ class Review extends Component {
                 <div className="container review">
                   <div className="row">
                       <div className="col col-sm-12 titlename">
-                        {this.props.data.name} says<br></br>
+                        <b>{this.props.data.name}</b> says<br></br>
                         {this.props.data.review}
                         <hr></hr>
                       </div>

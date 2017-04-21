@@ -43,7 +43,10 @@ class Rating extends Component {
         })
       }) .then((response) => {
    if(response.ok) {
-       this.setState({message:"Thank you for the review"});
+       this.setState({message:"Thanks!! for your review"});
+       this.refs.inputName.value="";
+       this.refs.inputComment.value="";
+       this.refs.inputrating.value="";
    } else {
      this.setState({message:"Please try again!!"});
    }
@@ -66,19 +69,19 @@ class Rating extends Component {
                   </div>
               </div>
               <div className="row ">
-                  <div className="col col-lg-12 reviewresult">
+                  <div className="col col-lg-12 alert alert-success">  
                    {message}
                   </div>
               </div>
               <div className="row">
                   <div className="col col-lg-12">
-                    <input type="text" className="form-control namegap"  placeholder="Enter username" onChange={this.handleNameChange.bind(this)}></input>
+                    <input type="text" className="form-control namegap"  placeholder="Enter username" ref="inputName" onChange={this.handleNameChange.bind(this)}></input>
                   </div>
               </div>
 
               <div className="row">
                   <div className="col col-lg-12">
-                    <select className="form-control" onChange={this.handleRatingChange.bind(this)} >
+                    <select className="form-control" ref="inputrating" onChange={this.handleRatingChange.bind(this)} >
                       <option >Rate out of 5</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -91,7 +94,7 @@ class Rating extends Component {
 
               <div className="row">
                   <div className="col col-lg-12">
-                    <textarea class="form-control" className="txtcomment" id="comment" onChange={this.handleReviewChange.bind(this)}></textarea>
+                    <textarea class="form-control" className="txtcomment" id="comment" ref="inputComment" onChange={this.handleReviewChange.bind(this)}></textarea>
                   </div>
               </div>
               <button type="button" className="btn btn-success" onClick={this.onSubmit}>Submit</button>
