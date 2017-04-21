@@ -12,7 +12,7 @@ class Search extends Component {
             input:"",
             date:"",
             bars:[],
-            count:0
+            count:-1                     
           };
           this.Search = this.Search.bind(this);
       }
@@ -37,7 +37,9 @@ class Search extends Component {
          var sportid = this.state.input;
          var date  = this.state.date;
          var url = "https://sportsbbar.herokuapp.com/getscbydatesport/"+date+"/"+sportid+"";
-
+         this.setState({
+           count:0
+         })
         var api = {
             getbar(){
                 return fetch(url).then((res)=>res.json());
@@ -46,21 +48,20 @@ class Search extends Component {
 
        api.getbar().then((res)=>{
          this.setState({
-            bars:res
+            bars:res,
+            count:1                                            
           });
-      })
-
-
+      })     
     }
 
-    render() {
-      const barlength = this.state.bars.length;
-      if(barlength>0){
-        var  button =  this.state.bars.map((time, i) => <SearchResult key={i} data={time} />)
-        }else{
-         var  button =  this.state.bars.map((time, i) => <NotFoundResult key={i} data={time} />)
-        }
-
+    render() {  
+       
+      if(this.state.count==1){        
+        var button = this.state.bars.map((time, i) => <SearchResult key={i} data={time} />)
+      }
+      if(this.state.count==0){
+        var button = <NotFoundResult/>
+      }
       return (
         <div className="background">
           <div className="container scontainer">
@@ -112,7 +113,7 @@ class Search extends Component {
           <div className="row">
           </div>
       </div>
-      {button}
+      {button}       
      </div>
       );
   }
@@ -163,14 +164,10 @@ class Search extends Component {
             return (
                <div className="noresult">
                   <div className="container contentgap">
-                      <div className="row">
-                         <div className="col col-sm-5">
-                          </div>
-                           <div className="col col-lg-3 ">
-                                <p>{this.props.data.message}</p>
-                            </div>
-                            <div className="col col-lg-4 ">
-                              </div>
+                      <div className="row">                         
+                           <div className="col col-lg-12 ">
+                                <p><b>Result Not Found</b></p>
+                            </div>                           
                           </div>
                         </div>
                       </div>
@@ -187,7 +184,7 @@ class Search extends Component {
                          <div className="col col-sm-5">
                           </div>
                            <div className="col col-lg-3 ">
-                                <h3> result found</h3>               
+                                <h3> Result found</h3>               
                             </div>
                             <div className="col col-lg-4 ">
                               </div>
