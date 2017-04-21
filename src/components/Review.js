@@ -54,12 +54,11 @@ class Review extends Component {
                 <div className="container review">
                   <div className="row">
                       <div className="col col-sm-12 titlename">
-                        <h4>{this.props.data.name} says</h4>
+                        {this.props.data.name} says<br></br>
+                        {this.props.data.review}
+                        <hr></hr>
                       </div>
-                      <div className="col col-sm-12 ">
-                        <p class="cmt">{this.props.data.review}</p>
-                      </div>
-                  </div>
+                    </div>                   
                </div>
             )
          }

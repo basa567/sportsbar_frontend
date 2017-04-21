@@ -11,12 +11,12 @@ class Contact extends Component {
           <Row>
           <Col xs={12} md={12}> 
               <h2>CONTACT US</h2>   
-            <p>Email:</p>
+            <p><b>Email:</b></p>
             <p>Sportsbar@outlook.com </p>
-            <p>Address:</p>
+            <p><b>Address:</b></p>
             <p>Kotkantie,Oulu,Finland</p>            
-            <p>Contributor:</p>
-            <p>Melen Tesfu,Suman kharel,Samita KC</p>
+            <p><b>Contributor:</b></p>
+            <p>Melen Taye, Samita K C, Suman Kharel</p>
           </Col>     
         </Row>
       </Grid>

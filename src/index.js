@@ -20,38 +20,38 @@ class  App extends Component {
       <nav className="navbar navbar-default">
         <div className="container-fluid">
           <div className="navbar-header logo">
-            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span className="sr-only">Toggle navigation</span>
-              <span className="icon-bar"></span>
+            <button type="button" className="navbar-toggle collapsed navbutton" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              
+              <span className="icon-bar iconbar"></span>
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
             <a className="navbar-brand title " href="#">Sports Bar</a>
           </div>
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul className="nav navbar-nav">
-               <li><Link to="/">Home</Link></li>
-               <li><Link to="/search">Search</Link></li>
-               <li><Link to="/map">Map</Link></li>
-               <li><Link to="/top3bar">Top Bars</Link></li>
-               <li><Link to="/contact">Contact</Link></li>
+            <ul className="nav navbar-nav navdisplay">
+               <li className="navdisplay"><Link to="/">Home</Link></li>
+               <li className="navdisplay"><Link to="/search">Search</Link></li>
+               <li className="navdisplay"><Link to="/map">Map</Link></li>
+               <li className="navdisplay"><Link to="/top3bar">Top Bars</Link></li>
+               <li className="navdisplay"><Link to="/contact">Contact</Link></li>
             </ul>
           </div>
         </div>
         {this.props.children}
-      </nav>
+      </nav>              
      </div>
     );
   }
 }
+
 ReactDOM.render( <Router history={browserHistory }>
         <Route path='/' component={App}>
           <Route path='/search'component={Search}></Route>
-           <Route path='/map'component={Map}></Route>
+          <Route path='/map'component={Map}></Route>
           <Route path='/top3bar' component={Bar}></Route>
           <Route path='/contact' component={Contact}></Route>
           <Route path='detail/:barid' component={Detail}></Route>
-
           <Route path='rating/:bid' component={Rating}></Route>
           <Route path='review/:bid' component={Review}></Route>
         </Route>

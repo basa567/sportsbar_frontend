@@ -32,7 +32,11 @@ class Detail extends Component {
         const scheduleData = response.data;        
         const nextSchedule = scheduleData.map(scheduleObject => {
           const barId = scheduleObject.bar_id;
-          const sportDate = scheduleObject.sport_date;
+          var today = new Date();
+          var dd = today.getDate();
+          var mm = today.getMonth()+1;
+          var yyyy = today.getFullYear();
+          const sportDate =  mm+'/'+dd+'/'+yyyy;
           const sportTime = scheduleObject.time;
           const sportId = scheduleObject.sport_id;
           const sportName = scheduleObject.sportname;
@@ -102,7 +106,6 @@ class Detail extends Component {
     }
     return (
     <div>
-
       <div className="detail">
           <Grid>
              <Row>
@@ -112,20 +115,16 @@ class Detail extends Component {
         </div>
           {schedule}
           {drink}
-
          <Grid>
              <Row>
             <Col  md={12} mdpull={12}  >
            <div className="sch_btn" >
               <Link to={"rating/"+this.props.params.barid}> <Button bsStyle="customrating" bsSize="large" block>Give Your Views & Rating</Button></Link>
-               <Link to={"review/"+this.props.params.barid}><Button bsStyle="customreview" bsSize="large" block>See Review</Button></Link>
-
-
-            </div>
+               <Link to={"review/"+this.props.params.barid}><Button bsStyle="customreview" bsSize="large" block>See Review</Button></Link>          </div>
            </Col>
              </Row>
             </Grid>
-          </div>
+      </div>
     );
   }
 }
@@ -139,7 +138,7 @@ class Drink extends Component {
                   </div>
                   <Grid>
                     <Row>
-                      <Col  md={6} mdpull={6}  >
+                      <Col  md={12} mdpull={12}  >
                         <Table responsive>
                           <thead>
                             <tr>
@@ -152,7 +151,6 @@ class Drink extends Component {
                               <td>{this.props.data.drinkname}</td>
                               <td>{this.props.data.price}</td>
                             </tr>
-
                           </tbody>
                         </Table>
                       </Col>
@@ -171,15 +169,13 @@ class Drink extends Component {
                    <Grid>
                       <Row>
                        <div className="detailname">
-                   <Col xs={12} md={6} >
+                   <Col xs={12} md={12} >
                       <Image className="detailimg" src={require("./image/" + this.props.bardata.image)}  responsive />
                   </Col>
-                        <Col xs={6} md={6} >
+                        <Col xs={12} md={12} >
                           <div className="detail-list">
-                            <p><b>{this.props.bardata.barname}</b></p>
-                            <p>location:{this.props.bardata.address}  </p>
-
-
+                            <p className="dtitle"><b>{this.props.bardata.barname}</b></p>
+                            <p className="dlocation">Location: {this.props.bardata.address}</p>
                          </div>
                        </Col>
                      </div>
@@ -198,27 +194,25 @@ class Drink extends Component {
  _volleyball(){
      $(this.refs['volleyball']).slideToggle();
  }
-
-
-render() {  
-return (
-  <div className="Schedule">
-     <Grid>
-       <Row>
-          <Col  md={12} mdpull={12}  >
-            
-            <div className="sch_btn" >
-                 <Button bsStyle="custom" bsSize="large" onClick={this._volleyball} block>{this.props.data.sportName}</Button>
-                 <div ref="volleyball"> 
-                                  
-                   <p><b>Timetable:</b>{this.props.data.sportTime}</p>
-                   </div>          
-             </div>
-         </Col>
-     </Row>
-   </Grid>
- </div>
-     );
+render() { 
+  
+  return (
+    <div className="Schedule">
+      <Grid>
+        <Row>        
+            <Col  md={12} mdpull={12}  >              
+              <div className="sch_btn" >
+                  <Button bsStyle="custom" bsSize="large" onClick={this._volleyball} block>{this.props.data.sportName}</Button>
+                  <div ref="volleyball">                                    
+                    <p><b>Timetable:</b>  {this.props.data.sportTime}</p>
+                    <p><b>Date:</b> {this.props.data.sportDate}</p>
+                    </div>          
+              </div>
+          </Col>
+      </Row>
+    </Grid>
+  </div>
+      );
    }
  }
 

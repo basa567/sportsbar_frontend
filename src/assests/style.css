@@ -2,11 +2,33 @@
 
 /*css begin for search*/
 .logo{
-   background:black;
+   background: linear-gradient(to bottom, #2989d8 2%,#2989d8 2%,#207cca 13%,#050c02 97%,#7db9e8 100%);
+}
+.navbutton{
+    background-color: white;
 }
 .navbar-brand  {
    background:white;
 }
+
+.navdisplay{
+    background-color:#1E2D8F;
+    color:white;
+}
+.navbar-default .navbar-nav>li>a  {
+    color:white;
+}
+.navbar-default .navbar-nav>li>a:hover {
+    color: yellow;
+    background-color: black;
+}
+.navbar-default .navbar-brand {
+    color: #080808;
+    font-weight:bold;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-size:2.5em;
+}
+
 .navbar-nav{
     background: white;
 }
@@ -76,7 +98,7 @@ font-weight: bolder;
 /*css begin for bar*/
 
 .backdivcolor{
-    background-color:#D9853B;
+    background-color:#F3F3F3;
 }
 .resultcontent{
     text-decoration:none;
@@ -103,20 +125,47 @@ a{
     text-decoration:none;
 }
 .titlebar{
-    font-size:18px;
+    font-size:22px;
     font-weight:bold;
     padding-top:20px;
-    padding-bottom:20px;
+    padding-bottom: 20px;    
+}
+.timetable{
+    font-size:18px;
+}
+.address{
+    font-size:16px;
 }
 .bar{
     border-top-right-radius:5px;
     border-top-left-radius:5px;
+    background:  #F3F3F3;
 }
-.barlist{
-  border-radius: 20px;
-  background-color: #d7dce5;
+
+
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+    color: white;
+    background-color: transparent;
+}
+.titletopbar{   
+    margin-bottom: 10px;
+    background-color:#207cca;
+    color:white;
+}
+.barlist{  
+  background-color:white;
   text-align: center;
-  margin-bottom: 2px;
+  margin: 20px;
+  
+}
+.ratevalue{
+    background-color:#5BA829;
+    border-color: #5BA829!important;
+    color:white;
+    font-size:26px;
+    font-weight:bold;
+    height:24px;
+    width:20px;
 }
 
 /*css ends for bar*/
@@ -150,12 +199,20 @@ a{
  /*contact end*/
  /*detai :start*/
  .detail{
-  background:#d7dce5;
-  margin-top:15px;
-  border-radius: 10px;
+  background:white;
+  margin:10px;  
+}
+.dtitle{
+    padding-top:10px;    
+    font-size:22px;
+}
+.dlocation{    
+    
+    margin-bottom:40px;
 }
 .detail-title h2{
   text-align: center;
+  color:white;
 }
 .detailimg{
   width:100%;
@@ -166,6 +223,8 @@ a{
 
 .detail-list h1,h2{
   text-align: center;
+  color:white;
+ 
 }
 .detail-list p,{
   text-align: left;
@@ -181,12 +240,18 @@ a{
   text-align: center;
 }
 .sch_btn{
-  max-Width: 400;
+  max-Width:100%;
    margin: '0 auto 10px';
+   background:white;
+}
+
+.btn:focus, .btn:hover {
+    color: white;
+    text-decoration: none;
 }
 .btn-custom {
         background-color: maroon;
-        color: white;
+        color: peru;
 }
 .Drink tr,th{
   text-align: center;
@@ -200,9 +265,10 @@ a{
     background-color:#333333;
     color:white;
     border-radius: 6px;
+    margin:10px;
 }
 .AddReview{
-  background-color:#F7F6D7;
+  background-color:#F3F3F3;
   color: black;
 }
 .comment{
@@ -213,20 +279,21 @@ a{
   height:64px;
 }
 .btn-customrating{
-    background-color:black;
+    background-color:#207cca;
     color: white;
     margin-top:10px;
     margin-bottom:10px;
 }
 .btn-customreview{
-    background-color:black;
+    background-color:seagreen;
     color:white;
+    margin-bottom:20px;
 }
 .cmt{
     text-align: justify;
 }
 .review{
-    background-color:#F7F6D7;
+    background-color:#F3F3F3;
 }
 
 .titlename{
@@ -238,6 +305,10 @@ a{
     margin-top:10px;
      background-color:black;
      color:white;
+}
+.Schedule{   
+    background:white;
+    margin:10px;
 }
 
  /*detail end*/

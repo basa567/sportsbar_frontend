@@ -15,7 +15,13 @@ class Barinfo extends Component {
     }   
     return (
       <div className="bar">
-        <h3>Sports bars in Oulu </h3>
+        <div className="container titletopbar">
+           <div className="row">
+              <div className="col col-lg-12">
+                  <h3 >Top Sports Bar </h3>
+                </div>                 
+            </div>
+        </div>        
         {barlist}
       </div>
     );

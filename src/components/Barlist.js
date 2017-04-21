@@ -14,10 +14,10 @@ class Barlist extends Component {
         <img src={require("./image/" + this.props.topbar.image)} alt="sportsbar" width="350px" height="150px"  className="bar"></img>
       </div>
 
-      <div className="col-sm-12 col-md-6">
-        <h4>{this.props.topbar.barname}</h4>
-        <h6>{this.props.topbar.address}</h6>
-        <h6>Rating:{rate}</h6>
+      <div className="col-sm-12 col-md-6">  
+        <span className="ratevalue">{rate}/5</span>    
+        <h3><b>{this.props.topbar.barname}</b></h3>         
+        <h4>{this.props.topbar.address}</h4>        
       </div>
       </div>
       </div>

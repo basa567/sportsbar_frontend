@@ -136,8 +136,8 @@ class Search extends Component {
                                 <img src={require("./image/" + this.props.data.image)} alt="sportsbar" width="350px" height="150px"  className="bar"></img>
                                 <div className="content">
                                   <div className="titlebar"> {this.props.data.barname}</div>
-                                  <div> Timetable:{this.props.data.time}</div>
-                                  <div> {this.props.data.address}</div>
+                                  <div className="timetable">Timetable: <b>{this.props.data.time}</b></div>
+                                  <div className="address"> {this.props.data.address}</div>
                                 </div>
                               </div>
                           </div>
