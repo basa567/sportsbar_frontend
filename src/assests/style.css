@@ -246,12 +246,12 @@ a{
 }
 
 .btn:focus, .btn:hover {
-    color: white;
+    color: yellow;
     text-decoration: none;
 }
 .btn-custom {
         background-color: maroon;
-        color: peru;
+        color: white;
 }
 .Drink tr,th{
   text-align: center;
