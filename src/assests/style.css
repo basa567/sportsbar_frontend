@@ -296,6 +296,12 @@ a{
     background-color:#F3F3F3;
     margin:10px;
 }
+.price{
+    float:right;
+}
+.drinkname{
+    float:left;    
+}
 
 .titlename{
     background-color:white;

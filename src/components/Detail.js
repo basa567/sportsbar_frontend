@@ -114,7 +114,16 @@ class Detail extends Component {
            </Grid>
         </div>
           {schedule}
-          {drink}
+          <div className="Drink">
+                  <div className="Drink-title">
+                    <h2>Drink list</h2>
+                  </div>
+                  <Grid>
+                    <Row>
+                     {drink}
+                  </Row>
+                </Grid>
+            </div>
          <Grid>
              <Row>
             <Col  md={12} mdpull={12}  >
@@ -132,30 +141,19 @@ class Detail extends Component {
 class Drink extends Component {
         render() {
             return (
-                <div className="Drink">
-                  <div className="Drink-title">
-                    <h2>Drink list</h2>
-                  </div>
-                  <Grid>
-                    <Row>
-                      <Col  md={12} mdpull={12}  >
+                <div >
+                 <Col  md={12} mdpull={12}  >
                         <Table responsive>
-                          <thead>
-                            <tr>
-                              <th>Drink</th>
-                              <th>Price</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>{this.props.data.drinkname}</td>
-                              <td>{this.props.data.price}</td>
-                            </tr>
+                         
+                          <tbody>                            
+                              <tr>
+                              <td className="drinkname">{this.props.data.drinkname}</td>
+                              <td className="price">{this.props.data.price}€</td>
+                             </tr>                           
                           </tbody>
                         </Table>
                       </Col>
-                  </Row>
-                </Grid>
+                           
             </div>
             )
         }
