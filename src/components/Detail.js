@@ -180,7 +180,7 @@ class Drink extends Component {
                         <Col xs={12} md={12} >
                           <div className="detail-list">
                             <p className="dtitle"><b>{this.props.bardata.barname}</b></p>
-                            <p className="dlocation">Location: {this.props.bardata.address}</p>
+                            <p className="dlocation"> {this.props.bardata.address}</p>
                          </div>
                        </Col>
                      </div>

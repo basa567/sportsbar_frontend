@@ -206,9 +206,11 @@ a{
     padding-top:10px;    
     font-size:22px;
 }
-.dlocation{    
-    
+.dlocation{   
     margin-bottom:40px;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight:bold;
+    font-size:1.4em;
 }
 .detail-title h2{
   text-align: center;
@@ -217,7 +219,7 @@ a{
 .detailimg{
   width:100%;
   height: 200px;
-  border-radius: 6px;
+ 
 
 }
 
