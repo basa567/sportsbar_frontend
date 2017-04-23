@@ -244,6 +244,13 @@ a{
    margin: '0 auto 10px';
    background:white;
 }
+.scheduletitle{
+    color:white;
+    font-weight: bold;
+    text-align: center;
+    background: black;
+    margin:20px;
+}
 
 .btn:focus, .btn:hover {
     color: white;
@@ -251,7 +258,7 @@ a{
 }
 .btn-custom {
         background-color: maroon;
-        color: peru;
+        color: white;
 }
 .Drink tr,th{
   text-align: center;

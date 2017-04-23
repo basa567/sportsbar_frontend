@@ -29,8 +29,7 @@ class  App extends Component {
             <a className="navbar-brand title " href="#">Sports Bar</a>
           </div>
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul className="nav navbar-nav navdisplay">
-               <li className="navdisplay"><Link to="/">Home</Link></li>
+            <ul className="nav navbar-nav navdisplay">               
                <li className="navdisplay"><Link to="/search">Search</Link></li>
                <li className="navdisplay"><Link to="/map">Map</Link></li>
                <li className="navdisplay"><Link to="/top3bar">Top Bars</Link></li>

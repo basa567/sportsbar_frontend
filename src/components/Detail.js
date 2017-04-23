@@ -112,7 +112,15 @@ class Detail extends Component {
              </Row>
            </Grid>
         </div>
-          {schedule}
+        <div>  
+        <h3 className="scheduletitle">Today’s Live Sports</h3>                                    
+                  <Grid>
+                    <Row>                     
+                     {schedule}
+                  </Row>
+                </Grid>
+         </div>
+         
           <div className="Drink">
                   <div className="Drink-title">
                     <h2>Drink list</h2>
