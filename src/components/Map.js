@@ -21,14 +21,12 @@ class Map extends Component {
   componentDidMount(){
     axios.get('https://sportsbbar.herokuapp.com/')
       .then(response => {
-        const markerData = response.data;
-        console.log(response.data)
+        const markerData = response.data;       
         const nextMarkers = markerData.map(markerObject => {
           const latLng = {lat: Number(markerObject.latitude), lng: Number(markerObject.longitude)};
           const barName = markerObject.barname;
           const address = markerObject.address ? markerObject.address: null;
-          const barID = markerObject._id;
-          console.log(barID)
+          const barID = markerObject._id;          
           return {
             barName: barName,
             position: latLng,
