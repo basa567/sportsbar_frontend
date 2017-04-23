@@ -25,8 +25,7 @@ class Detail extends Component {
 
 
     //  to get the schedule data from api
-    var url ="https://sportsbbar.herokuapp.com/getsportbytoday/"+this.props.params.barid;
-    console.log(url);
+    var url ="https://sportsbbar.herokuapp.com/getsportbytoday/"+this.props.params.barid;    
      axios.get(url)
       .then(response => {
         const scheduleData = response.data;        
