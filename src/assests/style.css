@@ -298,11 +298,14 @@ a{
 }
 .price{
     float:right;
+    font-family: 'Shadows Into Light', cursive;
+    font-size:22px;
 }
 .drinkname{
-    float:left;    
+    float:left;
+    font-family: 'Shadows Into Light', cursive;
+    font-size:22px;
 }
-
 .titlename{
     background-color:white;
 
