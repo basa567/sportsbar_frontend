@@ -209,8 +209,8 @@ render() {
               <div className="sch_btn" >
                   <Button bsStyle="custom" bsSize="large" onClick={this._volleyball} block>{this.props.data.sportName}</Button>
                   <div ref="volleyball">                                    
-                    <p><b>Timetable:</b>  {this.props.data.sportTime}</p>
-                    <p><b>Date:</b> {this.props.data.sportDate}</p>
+                    <p><b>Timetable:{this.props.data.sportTime}</b></p>
+                    <p><b>Date:{this.props.data.sportDate}</b> </p>
                     </div>          
               </div>
           </Col>

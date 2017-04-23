@@ -253,7 +253,7 @@ a{
 }
 
 .btn:focus, .btn:hover {
-    color: white;
+    color: yellow;
     text-decoration: none;
 }
 .btn-custom {
